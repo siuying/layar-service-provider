@@ -23,9 +23,7 @@ class GeoController < ApplicationController
     points = Point.find(:all, :origin =>[lat, lng], :within => radius, :conditions=>{ :group => layerName })
 
     hotspots = points.collect() do |p|
-      poi = p.to_poi
-      poi[:distance] = p.distance_to(current)
-      poi
+      p.to_poi(current)
     end
 
     result = {:layer => layerName, :errorCode => "0", :errorString => "ok", :hotspots => hotspots}
