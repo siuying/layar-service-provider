@@ -9,7 +9,7 @@ class Point < ActiveRecord::Base
   def to_poi(current_point)
     {
        :actions => [], 
-       :distance => distance_to(current_point),
+       :distance => distance_to(current_point) * 1000,
        :attribution => "data from www.mcdonalds.com.hk, brought to you by @siuying",
        :id => id,
        :imageURL => nil,
