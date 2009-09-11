@@ -10,7 +10,7 @@ class Point < ActiveRecord::Base
     {
        :actions => [], 
        :distance => distance_to(current_point) * 1000,
-       :attribution => "data from www.mcdonalds.com.hk, brought to you by @siuying",
+       :attribution => "data from www.mcdonalds.com.hk",
        :id => "#{name}#{id}",
        :imageURL => nil,
        :lat => (lat * 1000000).to_i,
