@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'json'
+
+dataset = JSON.parse(open('db/loc.js').read)
+dataset.each do |data|
+  name = data[0]
+  addr = data[1]
+  phone = data[2]
+
+  p = Point.create(:name => name, :address => addr, :phone => phone)
+  puts "point created: #{p.name} #{p.address}"
+  sleep(0.5)
+end

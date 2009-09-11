@@ -1,0 +1,101 @@
+--- !ruby/object:Gem::Specification 
+name: geokit
+version: !ruby/object:Gem::Version 
+  version: 1.4.1
+platform: ruby
+authors: 
+- Andre Lewis
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2009-06-15 00:00:00 +08:00
+default_executable: 
+dependencies: 
+- !ruby/object:Gem::Dependency 
+  name: hoe
+  type: :development
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: 1.12.2
+    version: 
+description: ""
+email: 
+- andre@earthcode.com
+executables: []
+
+extensions: []
+
+extra_rdoc_files: 
+- History.txt
+- Manifest.txt
+files: 
+- History.txt
+- Manifest.txt
+- README.markdown
+- Rakefile
+- geokit.gemspec
+- lib/geokit.rb
+- lib/geokit/geocoders.rb
+- lib/geokit/mappable.rb
+- test/test_base_geocoder.rb
+- test/test_bounds.rb
+- test/test_ca_geocoder.rb
+- test/test_geoloc.rb
+- test/test_geoplugin_geocoder.rb
+- test/test_google_geocoder.rb
+- test/test_google_reverse_geocoder.rb
+- test/test_inflector.rb
+- test/test_ipgeocoder.rb
+- test/test_latlng.rb
+- test/test_multi_geocoder.rb
+- test/test_us_geocoder.rb
+- test/test_yahoo_geocoder.rb
+- test/test_multi_ip_geocoder.rb
+has_rdoc: true
+homepage: 
+licenses: []
+
+post_install_message: 
+rdoc_options: 
+- --main
+- README.txt
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+requirements: []
+
+rubyforge_project: geokit
+rubygems_version: 1.3.5
+signing_key: 
+specification_version: 3
+summary: Geokit provides geocoding and distance calculation in an easy-to-use API
+test_files: 
+- test/test_base_geocoder.rb
+- test/test_bounds.rb
+- test/test_ca_geocoder.rb
+- test/test_geoloc.rb
+- test/test_geoplugin_geocoder.rb
+- test/test_google_geocoder.rb
+- test/test_google_reverse_geocoder.rb
+- test/test_inflector.rb
+- test/test_ipgeocoder.rb
+- test/test_latlng.rb
+- test/test_multi_geocoder.rb
+- test/test_multi_ip_geocoder.rb
+- test/test_us_geocoder.rb
+- test/test_yahoo_geocoder.rb
