@@ -26,7 +26,7 @@ class GeoController < ApplicationController
       p.to_poi(current)
     end
 
-    result = {:nextPageKey => "1", :morePages => "false", :layer => layerName, :errorCode => "0", :errorString => "ok", :hotspots => hotspots}
+    result = {:nextPageKey => "#{lat}#{lng}", :morePages => "false", :layer => layerName, :errorCode => "0", :errorString => "ok", :hotspots => hotspots}
     render :text => result.to_json
   end
 end
