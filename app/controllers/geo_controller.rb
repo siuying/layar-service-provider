@@ -29,6 +29,6 @@ class GeoController < ApplicationController
     end
 
     result = {:layer => layerName, :errorCode => "0", :errorString => "ok", :hotspots => hotspots}
-    result.to_json
+    render :text => result.to_json
   end
 end
