@@ -13,20 +13,18 @@ class GeoController < ApplicationController
     lng = params[:lon].to_f
     radius = (params[:radius] || "2500").to_f / 1000.0
     
-    # developerHashCorrect = Digest::SHA1.hexdigest(developerId + timestamp)
-    # if developerHash != developerHashCorrect
-    #   render :text => "no permission", :status => 403
-    #   return
-    # end
+    if validate_hash(developerId, timestamp, developerHash)
+      render :text => "no permission", :status => 403
+      return
+    end
 
     current = Geokit::LatLng.new(lat, lng)
     points = Point.find(:all, :origin =>[lat, lng], :within => radius, :conditions=>{ :group => layerName })
-
-    hotspots = points.collect() do |p|
-      p.to_poi(current)
+    hotspots = points.collect() do |point|
+      point_to_poi(point, current)
     end
 
-    result = {:nextPageKey => "#{lat}#{lng}", :morePages => false, :layer => layerName, :errorCode => 0, :errorString => "ok", :hotspots => hotspots}
+    result = {:nextPageKey => "#{lat},#{lng}", :morePages => false, :layer => layerName, :errorCode => 0, :errorString => "ok", :hotspots => hotspots}
     render :text => result.to_json
   end
 end
