@@ -19,13 +19,21 @@ class GeoController < ApplicationController
       return
     end
 
-    current = Geokit::LatLng.new(lat, lng)
-    points = Point.find(:all, :origin =>[lat, lng], :within => radius, :conditions=>{ :group => layerName })
-    hotspots = points.collect() do |point|
-      point_to_poi(point, current)
-    end
+    begin
+      points = Point.find(:all, :origin =>[lat, lng], :within => radius, :conditions=>{ :group => layerName })
 
-    result = {:nextPageKey => "#{lat},#{lng}", :morePages => false, :layer => layerName, :errorCode => 0, :errorString => "ok", :hotspots => hotspots}
-    render :text => result.to_json
+      current = Geokit::LatLng.new(lat, lng)
+      hotspots = points.collect() { |point| point_to_poi(point, current) }
+
+      result = {:nextPageKey => "#{lat},#{lng}", :morePages => false, :layer => layerName, 
+        :errorCode => 0, :errorString => "ok", :hotspots => hotspots}
+      render :text => result.to_json
+
+    rescue StandardError => e # simplistic error handling
+      result = {:nextPageKey => "#{lat},#{lng}", :morePages => false, :layer => layerName, 
+        :errorCode => 1, :errorString => "Unexpected Error: #{e.message}", :hotspots => []}
+      render :text => result.to_json
+
+    end
   end
 end
