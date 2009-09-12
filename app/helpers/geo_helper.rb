@@ -1,6 +1,8 @@
+require 'digest/sha1'
+
 module GeoHelper
-  def validate_hash(developerId, timestamp, developerHash)
-    developerHashCorrect = Digest::SHA1.hexdigest(developerId + timestamp)
+  def validate_hash(timestamp, developerHash)
+    developerHashCorrect = Digest::SHA1.hexdigest(Layar::Config::DEVELOPER_KEY + timestamp)
     return developerHash == developerHashCorrect
   end
 
