@@ -14,7 +14,7 @@ class GeoController < ApplicationController
     lng = params[:lon].to_f
     radius = (params[:radius] || "2500").to_f / 1000.0
     
-    if !validate_hash(developerId, timestamp, developerHash)
+    if !validate_hash(timestamp, developerHash)
       render :text => "no permission", :status => 403
       return
     end
