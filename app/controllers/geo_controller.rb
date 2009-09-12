@@ -2,6 +2,7 @@ require 'digest/sha1'
 require 'geokit'
 
 class GeoController < ApplicationController
+  include GeoHelper
   
   def index
     userId = params[:userId]
