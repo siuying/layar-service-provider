@@ -387,11 +387,11 @@ module Geokit
     class GoogleGeocoder < Geocoder
 
       private 
-      
+      #http://maps.google.com.hk/maps?f=q&source=s_q&hl=zh-TW&geocode=&q=hongkong&sll=22.625108,120.308954&sspn=0.410068,0.718918&ie=UTF8&ll=22.359601,114.12735&spn=0.410856,0.718918&t=h&z=11
       # Template method which does the reverse-geocode lookup.
       def self.do_reverse_geocode(latlng) 
         latlng=LatLng.normalize(latlng)
-        res = self.call_geocoder_service("http://maps.google.com/maps/geo?ll=#{Geokit::Inflector::url_escape(latlng.ll)}&output=xml&key=#{Geokit::Geocoders::google}&oe=utf-8&g=hk")
+        res = self.call_geocoder_service("http://maps.google.com/maps/geo?ll=#{Geokit::Inflector::url_escape(latlng.ll)}&output=xml&key=#{Geokit::Geocoders::google}&oe=utf-8&g=hk&ll=22.625108,120.308954&spn=0.410068,0.718918")
         #        res = Net::HTTP.get_response(URI.parse("http://maps.google.com/maps/geo?ll=#{Geokit::Inflector::url_escape(address_str)}&output=xml&key=#{Geokit::Geocoders::google}&oe=utf-8"))
         return GeoLoc.new unless (res.is_a?(Net::HTTPSuccess) || res.is_a?(Net::HTTPOK))
         xml = res.body

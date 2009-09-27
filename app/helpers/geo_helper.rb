@@ -17,9 +17,9 @@ module GeoHelper
        :lon => (point.lng * 1000000).to_i,
        :title => point.name,
        :line2 => point.address,
-       :line3 => point.phone,
+       :line3 => point.phone || "",
        :line4 => "",
-       :type => 0
+       :type => point.point_type
     }
   end
 end

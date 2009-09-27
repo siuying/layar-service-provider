@@ -7,7 +7,7 @@ if defined? Geokit
 	# This is the timeout value in seconds to be used for calls to the geocoder web
 	# services.  For no timeout at all, comment out the setting.  The timeout unit
 	# is in seconds. 
-	Geokit::Geocoders::timeout = 3
+	Geokit::Geocoders::timeout = 5
 
 	# These settings are used if web service calls must be routed through a proxy.
 	# These setting can be nil if not needed, otherwise, addr and port must be 
@@ -21,7 +21,7 @@ if defined? Geokit
 	# This is your yahoo application key for the Yahoo Geocoder.
 	# See http://developer.yahoo.com/faq/index.html#appid
 	# and http://developer.yahoo.com/maps/rest/V1/geocode.html
-	# Geokit::Geocoders::yahoo = 'REPLACE_WITH_YOUR_YAHOO_KEY'
+	Geokit::Geocoders::yahoo = ENV['YMAP_KEY']
     
 	# This is your Google Maps geocoder key. 
 	# See http://www.google.com/apis/maps/signup.html
@@ -52,7 +52,7 @@ if defined? Geokit
 	# Be aware that there are Terms of Use restrictions on how you can use the 
 	# various geocoders.  Make sure you read up on relevant Terms of Use for each
 	# geocoder you are going to use.
-	Geokit::Geocoders::provider_order = [:google,:us]
+	Geokit::Geocoders::provider_order = [:google,:yahoo]
 
 	# The IP provider order. Valid symbols are :ip,:geo_plugin.
 	# As before, make sure you read up on relevant Terms of Use for each

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090911151640) do
+ActiveRecord::Schema.define(:version => 20090927173634) do
 
   create_table "points", :force => true do |t|
     t.string   "group"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20090911151640) do
     t.decimal  "lng"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "point_type", :default => "0"
   end
 
   add_index "points", ["group"], :name => "index_points_on_group"
