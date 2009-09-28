@@ -10,7 +10,7 @@ module GeoHelper
     {
        :actions => [], 
        :distance => point.distance_to(ref_point) * 1000,
-       :attribution => "",
+       :attribution => point.attribution || "",
        :id => "#{point.name}#{point.id}",
        :imageURL => nil,
        :lat => (point.lat * 1000000).to_i,
