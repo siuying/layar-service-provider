@@ -19,7 +19,7 @@ module GeoHelper
        :line2 => point.address,
        :line3 => point.phone || "",
        :line4 => "",
-       :type => point.point_type
+       :type => point.point_type.to_i
     }
   end
 end
